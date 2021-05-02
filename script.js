@@ -6,6 +6,7 @@ const canvas = document.querySelector(".canvas");
 const colorselector = document.getElementById("colors");
 const clear = document.getElementById("clear");
 const changesize = document.getElementById("changesize");
+const eraser = document.getElementById("eraser");
 
 var pixels = document.querySelectorAll(".canvas div");
 initgrid();
@@ -18,14 +19,26 @@ function initgrid()
 
     for(let i = 1 ; i <= gridDimensions*gridDimensions ; i++ )
     {
-        canvas.appendChild(document.createElement("div"));
+        let p = document.createElement("div");
+      //p.setAttribute("draggable","false");
+        p.style.userSelect = "none";
+        canvas.appendChild(p);
     }
 
     pixels = document.querySelectorAll(".canvas div"); 
     pixels.forEach( (pixel) => {
         pixel.addEventListener("mouseover", (e)=> {
-             e.target.style.backgroundColor = currentcolor;} );
-    })
+            if(e.buttons > 0)
+            {
+                e.target.style.backgroundColor = currentcolor;} 
+            });
+    });
+    
+    pixels.forEach( (pixel) =>  pixel.addEventListener("click", e => e.target.style.backgroundColor = currentcolor ));
+
+
+
+
 }
 
 function clearcanvas()
@@ -54,6 +67,8 @@ function changeSize(){
 //event listeners
 color.oninput = () => { currentcolor = color.value; }
 
-clear.addEventListener("click",clearcanvas)
+clear.addEventListener("click",clearcanvas);
 
-changesize.addEventListener("click",changeSize)
+changesize.addEventListener("click",changeSize);
+
+
