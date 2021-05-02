@@ -11,17 +11,33 @@
 <body>
 
 <div class="container">
-    <h1>javascript paint</h1>
-    <div class="buttons">
-        <label for="colors" style="display: none;"></label>
-        <input type="color" name="color" id="colors" >
-        <button id="clear">Clear Canvas</button>
-        <button id="changesize">change size</button>
-        <button id="eraser">eraser</button>
-    </div>
+    <header>
+
+        <h1>javascript paint</h1>
+        <div class="buttons">
+            <label for="colors" style="display: none;">color</label>
+            <input type="color" name="color" id="colors" >
+            <button id="pencil" class="activebutton" >pencil</button>
+            <button id="eraser" >eraser</button>
+            <button id="clear" >Clear Canvas</button>
+            
+        </div>
+    </header>
     <div class="canvas"> 
     </div>
 </div>
+
+<button id="settings">Settings</button>
+
+<div class="modal">
+    <div class="modalcontent">
+            <button id="changesize">change size</button>
+            <button id="lines">toggle pixel borders: visible</button>
+            <button id="closemodal">close</button>
+    </div>
+</div>
+
+
 
 <script src="script.js"></script>
 
