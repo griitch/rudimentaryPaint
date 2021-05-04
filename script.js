@@ -99,11 +99,11 @@ function closemodal()
 
 function togglelines(e)
 {
-    if(document.querySelector(".canvas div").classList.toarray().includes("withBorders"))
-    //need to fix this last bug and i'm done
-        e.target.innerText = "toggle pixel borders: visible";
-    else
-        e.target.innerText = "toggle pixel borders: invisible";
+    
+    if(document.querySelector(".canvas div").classList.contains("withBorders"))
+       e.target.innerText = "toggle pixel borders: invisible";
+   else
+       e.target.innerText = "toggle pixel borders: visible";
 
     document.querySelectorAll(".canvas div").forEach( (pixel) => {pixel.classList.toggle("withBorders")} );
    
